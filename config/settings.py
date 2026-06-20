@@ -1,7 +1,3 @@
-"""
-Configuración de Django para el proyecto Tienda de Videojuegos.
-Django corre LOCAL (venv) y se conecta a PostgreSQL dentro de Docker (localhost:5432).
-"""
 import os
 from pathlib import Path
 

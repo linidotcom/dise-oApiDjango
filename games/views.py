@@ -6,7 +6,6 @@ from .serializers import EstudioSerializer, VideojuegoSerializer
 
 
 class EstudioViewSet(viewsets.ModelViewSet):
-    """CRUD completo de Estudios."""
     queryset = Estudio.objects.all()
     serializer_class = EstudioSerializer
     filterset_fields = ["pais", "anio_fundacion"]
@@ -15,7 +14,6 @@ class EstudioViewSet(viewsets.ModelViewSet):
 
 
 class VideojuegoViewSet(viewsets.ModelViewSet):
-    """CRUD completo de Videojuegos, con filtros avanzados."""
     queryset = Videojuego.objects.select_related("estudio").all()
     serializer_class = VideojuegoSerializer
     filterset_class = VideojuegoFilter

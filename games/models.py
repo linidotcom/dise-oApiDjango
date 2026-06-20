@@ -2,7 +2,6 @@ from django.db import models
 
 
 class Estudio(models.Model):
-    """Estudio desarrollador de videojuegos."""
     nombre = models.CharField(max_length=150, unique=True)
     pais = models.CharField(max_length=80)
     anio_fundacion = models.PositiveIntegerField()
@@ -18,7 +17,6 @@ class Estudio(models.Model):
 
 
 class Videojuego(models.Model):
-    """Videojuego. Pertenece a un Estudio (relacion 1:N via ForeignKey)."""
 
     class Plataforma(models.TextChoices):
         PC = "PC", "PC"

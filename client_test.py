@@ -1,10 +1,3 @@
-"""
-Cliente de prueba de la API Tienda de Videojuegos.
-Ejecuta:  python client_test.py
-(con el servidor corriendo en http://127.0.0.1:8000)
-
-Hace un POST (crear) y varios GET (listar y filtrar) e imprime los resultados.
-"""
 import requests
 
 BASE = "http://127.0.0.1:8000/api"
