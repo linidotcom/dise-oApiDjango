@@ -1,0 +1,23 @@
+# Entornos virtuales
+venv/
+env/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+test_tmp.sqlite3
+
+# Django
+*.log
+local_settings.py
+config/_settings_sqlite_tmp.py
+
+# Variables de entorno
+.env
+
+# Editores / SO
+.vscode/
+.idea/
+.DS_Store

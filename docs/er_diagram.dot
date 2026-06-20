@@ -1,0 +1,31 @@
+digraph ER {
+    rankdir=LR;
+    bgcolor="white";
+    node [shape=plaintext fontname="Helvetica"];
+
+    Estudio [label=<
+      <table border="0" cellborder="1" cellspacing="0" cellpadding="6" bgcolor="#eef3ff">
+        <tr><td bgcolor="#3b5bdb" align="center"><font color="white"><b>ESTUDIO</b></font></td></tr>
+        <tr><td align="left"><b>PK</b> id : int</td></tr>
+        <tr><td align="left">nombre : varchar</td></tr>
+        <tr><td align="left">pais : varchar</td></tr>
+        <tr><td align="left">anio_fundacion : int</td></tr>
+        <tr><td align="left">sitio_web : url</td></tr>
+      </table>>];
+
+    Videojuego [label=<
+      <table border="0" cellborder="1" cellspacing="0" cellpadding="6" bgcolor="#fff4e6">
+        <tr><td bgcolor="#e8590c" align="center"><font color="white"><b>VIDEOJUEGO</b></font></td></tr>
+        <tr><td align="left"><b>PK</b> id : int</td></tr>
+        <tr><td align="left">titulo : varchar</td></tr>
+        <tr><td align="left"><b>FK</b> estudio_id : int</td></tr>
+        <tr><td align="left">genero : varchar</td></tr>
+        <tr><td align="left">plataforma : varchar</td></tr>
+        <tr><td align="left">fecha_lanzamiento : date</td></tr>
+        <tr><td align="left">precio : decimal</td></tr>
+        <tr><td align="left">calificacion : float</td></tr>
+        <tr><td align="left">stock : int</td></tr>
+      </table>>];
+
+    Estudio -> Videojuego [arrowhead=crow arrowtail=none dir=both label="1 : N  desarrolla" fontname="Helvetica" fontsize=11];
+}

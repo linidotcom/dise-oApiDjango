@@ -1,0 +1,22 @@
+erDiagram
+    ESTUDIO ||--o{ VIDEOJUEGO : "desarrolla"
+
+    ESTUDIO {
+        int id PK
+        string nombre
+        string pais
+        int anio_fundacion
+        string sitio_web
+    }
+
+    VIDEOJUEGO {
+        int id PK
+        string titulo
+        int estudio_id FK
+        string genero
+        string plataforma
+        date fecha_lanzamiento
+        decimal precio
+        float calificacion
+        int stock
+    }

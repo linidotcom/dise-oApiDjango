@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:16
+    container_name: videogame_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: videogame_store
+      POSTGRES_USER: gamedev
+      POSTGRES_PASSWORD: gamedev123
+    ports:
+      # host:contenedor  -> tu Django local se conecta a localhost:5432
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gamedev -d videogame_store"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:
