@@ -21,7 +21,6 @@ def imprimir(titulo, respuesta):
 
 
 def main():
-    # 1) POST: crear un estudio
     estudio = {
         "nombre": "Estudio Demo",
         "pais": "Mexico",
@@ -32,7 +31,6 @@ def main():
     imprimir("POST /estudios/ (crear estudio)", r)
     estudio_id = r.json().get("id")
 
-    # 2) POST: crear un videojuego ligado a ese estudio
     juego = {
         "titulo": "Aventura Pixelada",
         "estudio": estudio_id,
@@ -46,11 +44,9 @@ def main():
     r = requests.post(f"{BASE}/videojuegos/", json=juego)
     imprimir("POST /videojuegos/ (crear videojuego)", r)
 
-    # 3) GET: listar todos los videojuegos
     r = requests.get(f"{BASE}/videojuegos/")
     imprimir("GET /videojuegos/ (listar)", r)
 
-    # 4) GET con filtro: por nombre de estudio
     r = requests.get(f"{BASE}/videojuegos/", params={"estudio_nombre": "Demo"})
     imprimir("GET /videojuegos/?estudio_nombre=Demo (filtrar)", r)
 

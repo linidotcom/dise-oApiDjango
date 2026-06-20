@@ -16,7 +16,6 @@ DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = ["*"]
 
-# --- Aplicaciones ---
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -24,17 +23,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # Terceros
     "rest_framework",
     "django_filters",
     "drf_spectacular",
     "corsheaders",
-    # Apps propias
     "games",
 ]
 
 MIDDLEWARE = [
-    # CORS debe ir lo más arriba posible, antes de CommonMiddleware
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -64,7 +60,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-# --- Base de datos: PostgreSQL en el contenedor de Docker ---
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -91,7 +86,6 @@ USE_TZ = True
 STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# --- Django REST Framework ---
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "DEFAULT_FILTER_BACKENDS": [
@@ -103,7 +97,6 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 10,
 }
 
-# --- Documentación Swagger / OpenAPI ---
 SPECTACULAR_SETTINGS = {
     "TITLE": "API Tienda de Videojuegos",
     "DESCRIPTION": "API REST para gestionar estudios y videojuegos (Django + DRF).",
@@ -111,7 +104,4 @@ SPECTACULAR_SETTINGS = {
     "SERVE_INCLUDE_SCHEMA": False,
 }
 
-# --- CORS: permitir peticiones desde cualquier origen ---
 CORS_ALLOW_ALL_ORIGINS = True
-# Alternativa para producción (un origen específico):
-# CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]

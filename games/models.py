@@ -41,7 +41,7 @@ class Videojuego(models.Model):
     )
     fecha_lanzamiento = models.DateField()
     precio = models.DecimalField(max_digits=8, decimal_places=2)
-    calificacion = models.FloatField(default=0)  # 0 a 10
+    calificacion = models.FloatField(default=0)
     stock = models.PositiveIntegerField(default=0)
 
     class Meta:

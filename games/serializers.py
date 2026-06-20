@@ -21,7 +21,6 @@ class EstudioSerializer(serializers.ModelSerializer):
 
 
 class VideojuegoSerializer(serializers.ModelSerializer):
-    # Solo lectura: nombre del estudio para mostrarlo en las respuestas
     estudio_nombre = serializers.CharField(source="estudio.nombre", read_only=True)
 
     class Meta:
@@ -29,8 +28,8 @@ class VideojuegoSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "titulo",
-            "estudio",          # se envia el id del estudio al crear/editar
-            "estudio_nombre",   # se devuelve el nombre al leer
+            "estudio",
+            "estudio_nombre",
             "genero",
             "plataforma",
             "fecha_lanzamiento",
